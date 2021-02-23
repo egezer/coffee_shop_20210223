@@ -1,0 +1,133 @@
+
+create table odi_demo.sales_receipts
+
+(transaction_id number(10),
+transaction_date varchar2(20),
+transaction_time varchar2(10),
+sales_outlet_id number(10),
+staff_id number(10),
+customer_id number(10),
+instore_yn varchar2(2), 
+order_num number(10),
+line_item_id number(10) ,
+product_id number(10),
+quantity number(10),
+line_item_amount number(10),
+unit_price number(10),
+promo_item_yn  varchar2(2)
+PRIMARY KEY (transaction_id)
+);
+
+
+create table odi_demo.dim_customer
+
+(customer_id number(10),
+home_store number(10),
+customer_first_name varchar2(100),
+customer_email varchar2(100),
+customer_since varchar2(100) ,
+loyalty_card_number varchar2(100),
+birthdate varchar2(100),
+gender varchar2(2),
+birth_year number(10)
+);
+
+
+
+create table odi_demo.dim_sales_targets
+
+(sales_outlet_id number(10),
+year_month varchar2(200),
+beans_goal number(10),
+beverage_goal number(10),
+food_goal number(10),
+merchandise_goal number(10),
+total_goal number(10)
+);
+
+
+create table odi_demo.dim_product
+
+(product_id  number(10),
+product_group varchar2(200),
+product_category varchar2(200),
+product_type varchar2(200),
+product varchar2(200),
+product_description varchar2(200),
+unit_of_measure varchar2(200),
+current_wholesale_price number(10),
+current_Retail_price  varchar2(200),
+tax_exempt_yn varchar2(2) ,
+promo_yn varchar2(2) ,
+new_product_yn varchar2(2)
+);
+
+
+create table odi_demo.dim_staff
+
+(
+staff_id number(10),
+first_name varchar2(100),
+last_name varchar2(100),
+position  varchar2(100),
+start_date date,
+location  varchar2(100)    );
+
+
+create table odi_demo.dim_sales_outlet
+(
+sales_outlet_id number(10),
+sales_outlet_type varchar2(200),
+store_square_feet number(10),
+store_address varchar2(200),
+store_city varchar2(200),
+store_state_province varchar2(200),
+store_telephone varchar2(200),
+store_postal_code number(10),
+store_longitude varchar2(200),
+store_latitude varchar2(200),
+manager number(10),
+Neighorhood varchar2(200)
+);
+
+
+
+
+create table odi_demo.dim_pastry_inventory
+(
+sales_outlet_id number(2),
+transaction_date date,
+product_id number(2),
+start_of_day number(2),
+quantity_sold number(2),
+waste number(2),
+waste_percentage varchar(4)
+);
+
+create table odi_demo.dim_date (
+transaction_date date,
+Date_ID number(8),
+Week_ID number(2),
+Week_Desc varchar2(100),
+Month_ID number(2),
+Month_Name varchar2(100),
+Quarter_ID number(2),
+Quarter_Name varchar2(100),
+Year_ID number(4)
+);
+
+
+
+create table odi_demo.dim_generations 
+(birth_year number(5,0),
+generation varchar2(100));
+
+
+
+
+
+
+
+
+
+
